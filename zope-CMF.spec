@@ -1,27 +1,28 @@
-%define product         CMF
-%define version         1.6.2
-%define release         1
+%define Product CMF
+%define product cmf
+%define name    zope-%{Product}
+%define version 2.1.0
+%define release %mkrel 1
 
 %define zope_minver     2.7.3
-
 %define zope_home       %{_prefix}/lib/zope
 %define software_home   %{zope_home}/lib/python
 
-Summary:        Zope Content Management Framework
-Name:           zope-%{product}
-Version:        %{version}
-Release:        %mkrel %{release}
-License:        ZPL
-Group:          System/Servers
-Source:         http://zope.org/Products/CMF/CMF-%{version}/CMF-%{version}.tar.bz2
-URL:            http://www.zope.org/Products/CMF/
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
-BuildArch:      noarch
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Summary:    Zope Content Management Framework
+License:    ZPL
+Group:      System/Servers
+URL:        http://www.zope.org/Products/%{Product}
+Source:     http://zope.org/Products/%{Product}/%{Product}-%{version}/%{Product}-%{version}.tar.gz
 Requires:       zope >= %{zope_minver}
 Provides:       zope-CMFActionIcons
 Obsoletes:      zope-CMFActionIcons
 Provides:       CMF = %{version}
 Obsoletes:      CMF
+BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 The Zope Content Management Framework provides a set of services and content
@@ -31,11 +32,10 @@ intended to be easily customizable, in terms of both the types of content used
 and the policies and services it provides.
 
 %prep
-%setup -q -n %{product}-%{version}
+%setup -q -n %{Product}-%{version}
 
 %build
 # Not much, eh? :-)
-
 
 %install
 %{__rm} -rf %{buildroot}
@@ -58,7 +58,6 @@ if [ -f "%{_prefix}/bin/zopectl" ] && [ "`%{_prefix}/bin/zopectl status`" != "da
 fi
 
 %files
-%defattr(0644, root, root, 0755)
-%{software_home}/Products/*
+%defattr(-,root,root)
 %doc docs *.txt
-
+%{software_home}/Products/*
