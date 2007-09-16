@@ -2,7 +2,7 @@
 %define product cmf
 %define name    zope-%{Product}
 %define version 2.1.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define zope_minver     2.7.3
 %define zope_home       %{_prefix}/lib/zope
@@ -42,7 +42,7 @@ and the policies and services it provides.
 %{__mkdir_p} %{buildroot}/%{software_home}/Products
 %{__cp} -a CMF* %{buildroot}%{software_home}/Products/
 %{__cp} -a DCWorkflow %{buildroot}%{software_home}/Products/
-
+%{__cp} -a GenericSetup %{buildroot}%{software_home}/Products/
 
 %clean
 %{__rm} -rf %{buildroot}
