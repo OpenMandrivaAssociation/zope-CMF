@@ -2,7 +2,7 @@
 %define product cmf
 %define name    zope-%{Product}
 %define version 2.1.0
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define zope_minver     2.7.3
 %define zope_home       %{_prefix}/lib/zope
@@ -16,13 +16,17 @@ License:    ZPL
 Group:      System/Servers
 URL:        http://www.zope.org/Products/%{Product}
 Source:     http://zope.org/Products/%{Product}/%{Product}-%{version}/%{Product}-%{version}.tar.gz
-Requires:       zope >= %{zope_minver}
-Provides:       zope-CMFActionIcons
-Obsoletes:      zope-CMFActionIcons
-Provides:       CMF = %{version}
-Obsoletes:      CMF
-BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+Requires:   zope >= %{zope_minver}
+Provides:   zope-CMFActionIcons = %{version}-%{release}
+Provides:   zope-CMFCalendar = %{version}-%{release}
+Provides:   zope-CMFCore = %{version}-%{release}
+Provides:   zope-CMFDefault = %{version}-%{release}
+Provides:   zope-CMFTopic = %{version}-%{release}
+Provides:   zope-CMFUid = %{version}-%{release}
+Provides:   zope-DCWorkflow = %{version}-%{release}
+Provides:   zope-GenericSetup = %{version}-%{release}
+BuildArch:  noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 The Zope Content Management Framework provides a set of services and content
