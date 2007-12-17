@@ -26,7 +26,6 @@ Provides:   zope-CMFUid = %{version}-%{release}
 Provides:   zope-DCWorkflow = %{version}-%{release}
 Provides:   zope-GenericSetup = %{version}-%{release}
 BuildArch:  noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 The Zope Content Management Framework provides a set of services and content
