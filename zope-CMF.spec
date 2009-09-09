@@ -2,7 +2,7 @@
 %define product cmf
 %define name    zope-%{Product}
 %define version 2.1.0
-%define release %mkrel 6
+%define release %mkrel 7
 
 %define zope_minver     2.7.3
 %define zope_home       %{_prefix}/lib/zope
